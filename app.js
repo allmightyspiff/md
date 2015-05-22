@@ -1,7 +1,5 @@
-
-// app.js
-var express = require('express'),
-app = express();
+var express = require('express');
+var app = express();
   
 
   
@@ -16,15 +14,14 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', function(req,res) {
 
   res.render('home', { });
+  console.log("GOT A REQUEST");
 
 });                     
 
-// The IP address of the Cloud Foundry DEA (Droplet Execution Agent) that hosts this application:
-var host = (process.env.VCAP_APP_HOST || 'localhost');
 // The port on the DEA for communication with the application:
-var port = (process.env.VCAP_APP_PORT || 3000);
+var port = 3000;
 // Start server
-app.listen(port, host);
+app.listen(port);
 console.log('App started on port ' + port);
 
 
